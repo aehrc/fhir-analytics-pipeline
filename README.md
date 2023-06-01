@@ -73,6 +73,14 @@ The project has the following structure:
 - `analytics` directory contains notebooks that provide examples of performing simple analytics.
 
 
+### Analytics
+
+Please watch [the screencast](https://aehrc.github.io/fhir-analytics-pipeline/assets/PowerBI_CovidRiskScore.mov)
+to see how PowerBI can be used to connect to the COVID-19 view at Databricks DeltaLake SQL database, 
+to perform some simple analytics, and produce the COVID-19 risk map below:
+
+![COVID-19 Risk Map](_assets/PowerBi_Analytics.png)
+
 ### References:
 - [FHIR Bulk Export API](https://build.fhir.org/ig/HL7/bulk-data/export.html)
 - [Pathling Documentation](https://pathling.csiro.au/)
