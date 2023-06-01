@@ -16,9 +16,12 @@ from pyspark.sql.functions import col, explode, explode_outer, first
 pc = PathlingContext.create(spark, max_nesting_level=5)
 
 #
-# Create a FHIR data sourceo on a direcotory with ndjson files with sample `Questionnaire` 
-# and `QuestionnaireResponse` resources.
+# Create a FHIR data source on a directory with ndjson files with
+# sample `Questionnaire` and `QuestionnaireResponse` resources.
 #
+# Examples taken form the FHIR specification, 
+# see: https://build.fhir.org/questionnaire-examples.html
+
 fhir_ds = pc.read.ndjson("s3://pathling-demo/staging/devdays/questionnaire")
 
 # COMMAND ----------
@@ -49,7 +52,7 @@ fhir_ds = pc.read.ndjson("s3://pathling-demo/staging/devdays/questionnaire")
 #                           linkid: string
 #                           text: string
 
-questionnarie_structure_df = fhir_ds.extract('Questionnaire', 
+questionnarie_outline_df = fhir_ds.extract('Questionnaire', 
     [
         'id',
         exp("item.linkId").alias("linkId_0"), 
@@ -61,13 +64,25 @@ questionnarie_structure_df = fhir_ds.extract('Questionnaire',
     ]
 )    
     
-display(questionnarie_structure_df)
+display(questionnarie_outline_df)
 
 # COMMAND ----------
 
 #
-# Extract selected responses to the `f201` questionnaire using 
-# fhirpath and the `extract()` operation.
+# Extract selected responses to the Lifelines questionnaire (id='f201') 
+# using fhirpath and the `extract()` operation.
+# 
+# The Lifelines Quesionnaire part 1
+#  1. Do you have allergies?
+#  2. General Questions:
+#    2.a) What is your gender?
+#    2.b) What is your date of birth?
+#    2.c) What is your country of birth?
+#    2.d) What is your marital status?
+#  3. Intoxications:
+#    3.a) Do you smoke?
+#    3.b) Do you drink alcohol?
+
 #
 # The selected response items:
 # - linkid: 2.1 -> gender
@@ -76,7 +91,7 @@ display(questionnarie_structure_df)
 # - linkid: 3.1 -> smoker
 # 
 # NOTE: subject.reference can be used to join the responses with Patient resource.
-#  
+#   
 f201_responses_df = fhir_ds.extract('QuestionnaireResponse', 
     [
         'id',

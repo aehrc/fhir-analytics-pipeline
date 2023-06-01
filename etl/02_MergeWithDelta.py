@@ -28,7 +28,7 @@ pc = PathlingContext.create(spark)
 
 # Load resources data from njdson files. Resource types are infered from file names 
 # e.g.: 'Observation.0003.ndjson' -> Observation.
-# Creates a `DataSource` instance, which conceptually maps
+# Creates a Patling `DataSource` instance, which conceptually maps
 # resource type to their corresponding Spark data frames.
 # So in our case: 
 # { 
@@ -40,9 +40,13 @@ pc = PathlingContext.create(spark)
 fhir_resources_ds = pc.read.ndjson(SOURCE_URL)
 
 #DEBUG: Show some of the encoded resources
-print("Dataframe for Patient resource")
-print(fhir_resources_ds.read('Patient'))
-print()
+print(f"ndjson data in `{SOURCE_URL}` includes:")
+print(" %s patients" % fhir_resources_ds.read('Patient').count())
+print(" %s conditions" % fhir_resources_ds.read('Condition').count())
+print(" %s observations" % fhir_resources_ds.read('Observation').count())
+print(" %s immunizations" % fhir_resources_ds.read('Immunization').count())
+
+# COMMAND ----------
 
 # Create the destination schema
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {DESTINATION_SCHEMA}")
@@ -53,6 +57,7 @@ spark.sql(f"CREATE SCHEMA IF NOT EXISTS {DESTINATION_SCHEMA}")
 fhir_resources_ds.write.tables(DESTINATION_SCHEMA, ImportMode.MERGE)
 
 #DEBUG: Dislay created/existing tables in the destination schema
-print(f"Tables in schema {DESTINATION_SCHEMA}:")
-for table in spark.catalog.listTables(DESTINATION_SCHEMA):
-    print(table.name)
+print(f"FHIR resource tables in schema `{DESTINATION_SCHEMA}`:")
+spark.catalog.setCurrentDatabase(DESTINATION_SCHEMA)
+for table in spark.catalog.listTables():
+    print(" `%s` with %s rows" % (table.name, spark.read.table(table.name).count()))

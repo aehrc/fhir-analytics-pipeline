@@ -16,8 +16,8 @@ and  Immunization to produce a flat table with the following data:
   hasBMIOver30: has the patient ever had BMI over 30
   isCovidVaccinated: has the patient been vaccianed with any of the COVID-19 vaccines
 
-For simplicity, we assume that the time of the immunization, diagnosis
-or observation is not important in this scenario.
+For simplicity, we assume that the time of the events such as: 
+immunization, diagnosisor observation is not important in this scenario.
 """
 
 # Initialise pathling context connected 
@@ -66,7 +66,7 @@ pc = PathlingContext.create(spark)
 from pathling import Expression as exp
 
 #
-# Create a FHIR data source on the table form the current database.
+# Create a Pathglin data source on the tables of a delta lake schema.
 # see: https://pathling.csiro.au/docs/python/pathling.html#pathling.datasource.DataSources.tables
 #
 

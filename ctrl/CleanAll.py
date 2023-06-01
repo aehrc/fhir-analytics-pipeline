@@ -14,4 +14,5 @@ dbutils.fs.rm('/tmp/DevDays', True)
 # MAGIC -- DROP all schemas
 # MAGIC DROP SCHEMA IF EXISTS devdays_fhir CASCADE;
 # MAGIC DROP SCHEMA IF EXISTS devdays_sql CASCADE;
-# MAGIC DROP SCHEMA IF EXISTS devdays_bundles CASCADE;
+# MAGIC DROP SCHEMA IF EXISTS devdays_fhir_1000 CASCADE;
+# MAGIC DROP SCHEMA IF EXISTS devdays_sql_1000 CASCADE;
