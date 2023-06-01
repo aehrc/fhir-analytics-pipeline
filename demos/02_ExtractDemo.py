@@ -66,7 +66,7 @@ pc = PathlingContext.create(spark)
 from pathling import Expression as exp
 
 #
-# Create a FHIR data source on the table form the current database.
+# Create a Pathglin data source on the tables of a delta lake schema.
 # see: https://pathling.csiro.au/docs/python/pathling.html#pathling.datasource.DataSources.tables
 #
 
