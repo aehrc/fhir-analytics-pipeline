@@ -1,6 +1,5 @@
-# fhir-analytics-pipeline
+# FHIR Analytics Pipeline
 An example of how to build a pipeline for extracting, transforming and analyzing FHIR data.
-
 
 ### Use case
 
@@ -85,5 +84,6 @@ to perform some simple analytics, and produce the COVID-19 risk map below:
 - [FHIR Bulk Export API](https://build.fhir.org/ig/HL7/bulk-data/export.html)
 - [Pathling Documentation](https://pathling.csiro.au/)
 - [Pathling Github](https://github.com/aehrc/pathling)
+- [Pathling: analytics on FHIR, John Grimes, et al., DOI:10.1186/s13326-022-00277-1 ](https://jbiomedsem.biomedcentral.com/articles/10.1186/s13326-022-00277-1)
 
 
