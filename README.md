@@ -20,7 +20,7 @@ The use-case centric view includes the following columns:
 - `hasHD`: has the patient been ever diagnosed with a heart disease
 - `hasCKD`: has the patient been ever diagnosed with a chronic kidney disease
 - `hasBMIOver30`: has the patient ever had BMI over 30
-- `isCovidVaccinated`: has the patient been vaccianed with any of the COVID-19 vaccines
+- `isCovidVaccinated`: has the patient been vaccinated with any of the COVID-19 vaccines
 
 ### Design and implementation
 
@@ -30,7 +30,7 @@ The design of the pipeline is shown of the figure below.
 
 The pipeline consists of the following steps:
 - Extracting the ndjson data from the FHIR server using [FHIR Bulk Export API](https://build.fhir.org/ig/HL7/bulk-data/export.html)
-- Encoding ndjson resource data as Apache Spark data frames and storing them as tables in a Delta Lake
+- Encoding ndjson resource data as Apache Spark data frames and storing them as tables in a Delta Lake with SQL projection similar to [SQL on FHIR](https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md)
 - Transforming the data using FHIRPath into the use-case centric view and loading it into an SQL database
 
 The pipeline is implemented using Databricks notebooks and in addition to Apache Spark heavily 
@@ -82,6 +82,7 @@ to perform some simple analytics, and produce the COVID-19 risk map below:
 
 ### References:
 - [FHIR Bulk Export API](https://build.fhir.org/ig/HL7/bulk-data/export.html)
+- [SQL on FHIR](https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md)
 - [Pathling Documentation](https://pathling.csiro.au/)
 - [Pathling Github](https://github.com/aehrc/pathling)
 - [Pathling: analytics on FHIR, John Grimes, et al., DOI:10.1186/s13326-022-00277-1 ](https://jbiomedsem.biomedcentral.com/articles/10.1186/s13326-022-00277-1)
