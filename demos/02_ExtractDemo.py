@@ -16,8 +16,8 @@ and  Immunization to produce a flat table with the following data:
   hasBMIOver30: has the patient ever had BMI over 30
   isCovidVaccinated: has the patient been vaccianed with any of the COVID-19 vaccines
 
-For simplicity, we assume that the time of the immunization, diagnosis
-or observation is not important in this scenario.
+For simplicity, we assume that the time of the events such as: 
+immunization, diagnosisor observation is not important in this scenario.
 """
 
 # Initialise pathling context connected 

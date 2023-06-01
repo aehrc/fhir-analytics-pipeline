@@ -3,8 +3,10 @@
 Demonstrates how to use FHIRPath with the Pathling `extract()` operation
 and SQL to obtain extension values.
 
+Data comprise of ndjson file exported from the 100 patients 
+database of https://bulk-data.smarthealthit.org/.
 
-Extensions definf on `Patient` resource:
+Extensions defined on `Patient` resource:
 
 - string: http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName
 - Address: http://hl7.org/fhir/StructureDefinition/patient-birthPlace
@@ -20,7 +22,7 @@ Extensions defined on `address` element:
 
 We demonstrate how select the `city_of_birth`, `quality_adjusted_life_years`, 
 `address_latitude`, `address_longitude`  values for each Patient 
-using both SQL and `extract()` operation.
+using both FHIRpath and SQL.
 """
 
 
@@ -58,7 +60,7 @@ display(result.orderBy('id'))
 # COMMAND ----------
 
 #
-# Obtain the data frame for the `Patient` resource and register it a temorary view
+# Obtain the data frame for the `Patient` resource and register it a temporary view
 # so that it can be used in SQL queries.
 #
 fhir_ds.read('Patient').createOrReplaceTempView('patient_with_extensions')

@@ -20,7 +20,7 @@ pc = PathlingContext.create(spark, max_nesting_level=5)
 # sample `Questionnaire` and `QuestionnaireResponse` resources.
 #
 # Examples taken form the FHIR specification, 
-# e.g: https://build.fhir.org/questionnaire-examples.html
+# see: https://build.fhir.org/questionnaire-examples.html
 
 fhir_ds = pc.read.ndjson("s3://pathling-demo/staging/devdays/questionnaire")
 
