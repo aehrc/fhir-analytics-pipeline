@@ -2,7 +2,7 @@
 """
 Demonstrates how to use Pathling `extract()` operation to  to extract data from the FHIR 
 resources in the form of delta lake tables, 
-for the pupose of COVID-19 risk factor self-service analytics.
+for the purpose of COVID-19 risk factor self-service analytics.
 
 The operation uses data across mutliple resources: Patient, Condition, Observation, 
 and  Immunization to produce a flat table with the following data:
@@ -17,7 +17,7 @@ and  Immunization to produce a flat table with the following data:
   isCovidVaccinated: has the patient been vaccianed with any of the COVID-19 vaccines
 
 For simplicity, we assume that the time of the events such as: 
-immunization, diagnosisor observation is not important in this scenario.
+immunization, diagnosis observation is not important in this scenario.
 """
 
 # Initialise pathling context connected 

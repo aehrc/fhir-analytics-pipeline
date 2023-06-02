@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC
-# MAGIC Number of non vaccinated patients startified by risk score grouped by area code
+# MAGIC Number of non vaccinated patients stratified by risk score grouped by area code
 # MAGIC
 # MAGIC -  `risk_score = hasBMIOver30 + 3 * hadCKD  + 2 * hasHD`
 # MAGIC -  `area_code = first three digits of postalCode`

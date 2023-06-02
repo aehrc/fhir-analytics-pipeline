@@ -1,22 +1,22 @@
 # Databricks notebook source
 """
 Demonstrates how to use SQL to extract data from the FHIR resources in the form of delta lake tables, 
-for the pupose of COVID-19 risk factor self-service analytics.
+for the purpose of COVID-19 risk factor self-service analytics.
 
-The query uses data across mutliple resources: Patient, Condition, Observation, 
+The query uses data across multiple resources: Patient, Condition, Observation,
 and  Immunization to produce a flat table with the following data:
 
   id: patient's id
   gender: patient's gender
   birthDate: patients' date of birth
   postalCode: patient's address postal code
-  hasHD: has the patient been ever disgnosed with a heart disease
+  hasHD: has the patient been ever diagnosed with a heart disease
   hasCKD: has the patient been ever diagnosed with a chronic kidney disease
   hasBMIOver30: has the patient ever had BMI over 30
-  isCovidVaccinated: has the patient been vaccianed with any of the COVID-19 vaccines
+  isCovidVaccinated: has the patient been vaccinated with any of the COVID-19 vaccines
 
 For simplicity, we assume that the time of the events such as: 
-immunization, diagnosisor observation is not important in this scenario.
+immunization, diagnosis observation is not important in this scenario.
 """
 
 # Initialise pathling context to register terminology UDFs and connect 
@@ -89,9 +89,9 @@ display(
 # MAGIC %sql
 # MAGIC -- 
 # MAGIC -- Find Body Mass Index observations
-# MAGIC -- Observation code is subsubed by LONIC code `39156-5` - "Body mass index (BMI) [Ratio]"
+# MAGIC -- Observation code is subsumed by LONIC code `39156-5` - "Body mass index (BMI) [Ratio]"
 # MAGIC -- Note, that the value of the observation is a quantity usually expressed in `kg/m2`. 
-# MAGIC -- `valueQuantity._value_canonicalized.value` can be used to obtaint the value always
+# MAGIC -- `valueQuantity._value_canonicalized.value` can be used to obtain the value always
 # MAGIC -- expressed in UCUM canonical units, in our case `g/m2`.
 # MAGIC -- 
 # MAGIC SELECT 

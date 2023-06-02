@@ -3,7 +3,7 @@
 Merge resource data form ndjson files into a delta lake schema.
 Encodes the ndjson files as SparkSQL datasets and merges them with the delta tables.
 
-:param SOURCE_URL: the URL to the directory with ndjson encoded resouce files
+:param SOURCE_URL: the URL to the directory with ndjson encoded resource files
 :param DESTINATION_SCHEMA: the name of the data lake schema to merge the resource data into
 """
 
@@ -26,9 +26,9 @@ from pathling.datasink import ImportMode
 # Initialize Pathling context
 pc = PathlingContext.create(spark)
 
-# Load resources data from njdson files. Resource types are infered from file names 
+# Load resources data from njdson files. Resource types are inferred from file names
 # e.g.: 'Observation.0003.ndjson' -> Observation.
-# Creates a Patling `DataSource` instance, which conceptually maps
+# Creates a Pathling `DataSource` instance, which conceptually maps
 # resource type to their corresponding Spark data frames.
 # So in our case: 
 # { 
@@ -56,7 +56,7 @@ spark.sql(f"CREATE SCHEMA IF NOT EXISTS {DESTINATION_SCHEMA}")
 # data in the resource table in the schema.
 fhir_resources_ds.write.tables(DESTINATION_SCHEMA, ImportMode.MERGE)
 
-#DEBUG: Dislay created/existing tables in the destination schema
+#DEBUG: Display created/existing tables in the destination schema
 print(f"FHIR resource tables in schema `{DESTINATION_SCHEMA}`:")
 spark.catalog.setCurrentDatabase(DESTINATION_SCHEMA)
 for table in spark.catalog.listTables():

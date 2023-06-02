@@ -27,7 +27,7 @@ fhir_ds = pc.read.ndjson("s3://pathling-demo/staging/devdays/questionnaire")
 # COMMAND ----------
 
 #
-# Progresively unnnest items of each of the questionnaires, 
+# Progressively unnest items of each of the questionnaires,
 # to create the outline of each using their `item.linkId` elements.
 # We expect the schema of:
 # 
@@ -113,12 +113,12 @@ display(f201_responses_df)
 questionnaire_df = fhir_ds.read('Questionnaire')
 
 #
-# Progresively unnnest items of each of the questionnaires, 
+# Progressively unnnest items of each of the questionnaires,
 # to create the outline of each using their `item.linkId` elements.
 # 
 
 # NOTE: We are using pyspark python dataframe API
-# but the same can be achieved in SQL with subqueries.
+# but the same can be achieved in SQL with sub-queries.
 #
 
 item_df = questionnaire_df \

@@ -3,10 +3,10 @@
 Bulk export specified FHIR resources from the provided FHIR server and save the data in the 
 specified directory of a file/object store.
 
-By defaul bulk export the 100 patients database from https://bulk-data.smarthealthit.org/.
+By default bulk export the 100 patients database from https://bulk-data.smarthealthit.org/.
 
-:param FHIR_ENDPOINT_URL: the URL to the FHIR API endpoing with bulk export capabilites
-:param EXPORT_RESOURCES: coma spearated list of resource names to export
+:param FHIR_ENDPOINT_URL: the URL to the FHIR API endpoint with bulk export capabilities
+:param EXPORT_RESOURCES: coma separated list of resource names to export
 :param DESTINATION_URL: the URL to the directory to save the exported resource files
 """
 
@@ -38,9 +38,9 @@ from os import path
 def bulk_export(fhir_url, resources):
     """
     Performs the bulk export of the specified resources from the given FHIR server. 
-    Initiates the builk export and waits for its completion.
+    Initiates the bulk export and waits for its completion.
 
-    :param fhir_url: the FHIR API endpoing URL
+    :param fhir_url: the FHIR API endpoint URL
     :param resources: the list of named of the resources to export 
     :return: the final bulk export response
     """
@@ -93,7 +93,7 @@ def bulk_export(fhir_url, resources):
 export_response = bulk_export(FHIR_ENDPOINT_URL, EXPORT_RESOURCES)
 
 # DEBUG: bulk export response JSON
-print(f"""Server side export sucessful with response:
+print(f"""Server side export successful with response:
 {export_response}""")
 
 
@@ -107,7 +107,7 @@ from tempfile import TemporaryDirectory
 
 def dowload_export(export_response, destination_url, clean = True):
     """
-    Downloads the resuls for a bulk export operation to the specified directory.
+    Downloads the results for a bulk export operation to the specified directory.
 
     :param export_response: the response from a successful bulk export operation
     :param destination_url: the URL to the directory to save the exported files in
