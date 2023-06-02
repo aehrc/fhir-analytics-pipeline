@@ -72,6 +72,11 @@ The project has the following structure:
 - `analytics` directory contains notebooks that provide examples of performing simple analytics.
 
 
+For the instructions on how to setup Pathling in Databrics environment, see the instructions in 
+the [Pathling Documentation](https://pathling.csiro.au/docs/libraries/installation/databricks).
+
+The pipeline requires Pathling version 6.2.1 or later.
+
 ### Analytics
 
 Please watch [the screencast](https://aehrc.github.io/fhir-analytics-pipeline/assets/PowerBI_CovidRiskScore.mov)
