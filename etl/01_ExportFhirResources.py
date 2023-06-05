@@ -7,21 +7,21 @@ By default bulk export the 100 patients database from https://bulk-data.smarthea
 
 :param FHIR_ENDPOINT_URL: the URL to the FHIR API endpoint with bulk export capabilities
 :param EXPORT_RESOURCES: coma separated list of resource names to export
-:param DESTINATION_URL: the URL to the directory to save the exported resource files
+:param STAGING_DIR_URL: the URL to the directory to save the exported resource files
 """
 
 dbutils.widgets.text('FHIR_ENDPOINT_URL', 'https://bulk-data.smarthealthit.org/eyJlcnIiOiIiLCJwYWdlIjoxMDAwMCwiZHVyIjoxMCwidGx0IjoxNSwibSI6MSwic3R1Ijo0LCJkZWwiOjB9/fhir')
 dbutils.widgets.text('EXPORT_RESOURCES', 'Patient,Condition,Observation,Immunization')
-dbutils.widgets.text('DESTINATION_URL', 'dbfs:/tmp/DevDays/demo-etl')
+dbutils.widgets.text('STAGING_DIR_URL', 'dbfs:/tmp/DevDays/demo-etl')
 
 FHIR_ENDPOINT_URL = dbutils.widgets.get('FHIR_ENDPOINT_URL')
 EXPORT_RESOURCES = dbutils.widgets.get('EXPORT_RESOURCES').split(',')
-DESTINATION_URL = dbutils.widgets.get('DESTINATION_URL')
+STAGING_DIR_URL = dbutils.widgets.get('STAGING_DIR_URL')
 
 print(f"""Exporting: 
  resources: {EXPORT_RESOURCES}
  from: `{FHIR_ENDPOINT_URL}`
- to: `{DESTINATION_URL}`
+ to: `{STAGING_DIR_URL}`
 """)
 
 # COMMAND ----------
@@ -131,11 +131,11 @@ def dowload_export(export_response, destination_url, clean = True):
             dbutils.fs.mv(temp_url, output_url)
             index = index + 1
 
-dowload_export(export_response, DESTINATION_URL)
+dowload_export(export_response, STAGING_DIR_URL)
 
 #DEBUG: List downloaded files and their contents
 print("Downloaded files:")
-files = dbutils.fs.ls(DESTINATION_URL)
+files = dbutils.fs.ls(STAGING_DIR_URL)
 for f in files: 
     print("`%s`: %s" % (f.path, dbutils.fs.head(f.path, 100)))
 
