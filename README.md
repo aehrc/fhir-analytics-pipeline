@@ -77,6 +77,9 @@ the [Pathling Documentation](https://pathling.csiro.au/docs/libraries/installati
 
 The pipeline requires Pathling version 6.2.1 or later.
 
+Before running the notebooks in `demos` and `etl` please run `ctrl/SetUp` in order to
+prepare the workspace (mainly download the example data).
+
 ### Analytics
 
 Please watch [the screencast](https://aehrc.github.io/fhir-analytics-pipeline/assets/PowerBI_CovidRiskScore.mov)

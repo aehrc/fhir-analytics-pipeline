@@ -36,7 +36,7 @@ pc = PathlingContext.create(spark, enable_extensions = True)
 #
 # Create a FHRI data source on a directory with ndjons encoded resource files.
 # 
-fhir_ds = pc.read.ndjson('s3://pathling-demo/staging/devdays/ndjson/')
+fhir_ds = pc.read.ndjson('dbfs:/tmp/DevDays/data/')
 
 # COMMAND ----------
 

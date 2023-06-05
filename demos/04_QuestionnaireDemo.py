@@ -22,7 +22,7 @@ pc = PathlingContext.create(spark, max_nesting_level=5)
 # Examples taken form the FHIR specification, 
 # see: https://build.fhir.org/questionnaire-examples.html
 
-fhir_ds = pc.read.ndjson("s3://pathling-demo/staging/devdays/questionnaire")
+fhir_ds = pc.read.ndjson("dbfs:/tmp/DevDays/data/")
 
 # COMMAND ----------
 
