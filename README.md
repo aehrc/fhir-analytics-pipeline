@@ -80,6 +80,21 @@ The pipeline requires Pathling version 6.2.1 or later.
 Before running the notebooks in `demos` and `etl` please run `ctrl/SetUp` in order to
 prepare the workspace (mainly download the example data).
 
+
+### Workflow
+
+The notebooks implementing the pipeline steps in `etl` directory can be orchestrated into 
+an automated pipeline with a Databricks Workflow.
+
+![Pipeline Workflow](_assets/Databricks_Workflow.png)
+
+The screencasts here 
+[part1](https://aehrc.github.io/fhir-analytics-pipeline/assets/Databricsk_Workflow_Narrated_part01.mov) 
+nad [part2](https://aehrc.github.io/fhir-analytics-pipeline/assets/Databricsk_Workflow_Narrated_part02.mov) 
+demonstrate how to create such a workflow 
+that connects to the 1000 patients database from https://bulk-data.smarthealthit.org/ 
+and creates the use-case centric view in the `devdays_sql_1000` schema.
+
 ### Analytics
 
 Please watch [the screencast](https://aehrc.github.io/fhir-analytics-pipeline/assets/PowerBI_CovidRiskScore.mov)
