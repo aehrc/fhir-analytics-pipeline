@@ -97,13 +97,14 @@ and creates the use-case centric view in the `devdays_sql_1000` schema.
 
 ### Analytics
 
-Please watch [the screencast](https://aehrc.github.io/fhir-analytics-pipeline/assets/PowerBI_CovidRiskScore.mov)
+Please watch [the screencast](https://aehrc.github.io/fhir-analytics-pipeline/assets/PowerBI_CovidRiskScore_Narrated.mov)
 to see how PowerBI can be used to connect to the COVID-19 view at Databricks DeltaLake SQL database, 
 to perform some simple analytics, and produce the COVID-19 risk map below:
 
 ![COVID-19 Risk Map](_assets/PowerBi_Analytics.png)
 
 ### References:
+- [FHIR DevDays2023 presentation](https://aehrc.github.io/fhir-analytics-pipeline/docs/DD23_Tutorial_230608_PiotrSzul_HowToIntegrateFhir.final.pdf)
 - [FHIR Bulk Export API](https://build.fhir.org/ig/HL7/bulk-data/export.html)
 - [SQL on FHIR](https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md)
 - [Pathling Documentation](https://pathling.csiro.au/)
